@@ -27,14 +27,6 @@ Vanilla JavaScript: Modular logic using the Module Pattern for state management 
 
 LocalStorage: For client-side data persistence.
 
-📂 Project Structure
-Plaintext
-
-├── index.html       # Main UI structure and CDN links
-├── js/
-│   ├── app.js           # Event listeners and app initialization
-│   ├── taskService.js   # Logical data handling & LocalStorage logic
-│   └── ui.js            # Dynamic DOM rendering and badge creation
 
 🚀 Use Cases
 Daily Planner: Keep track of personal errands and work deadlines in one place.
@@ -42,3 +34,4 @@ Daily Planner: Keep track of personal errands and work deadlines in one place.
 Priority Focus: Use the "High Priority" filter to focus only on the most critical tasks during a busy day.
 
 Productivity Tracking: Use the Statistics panel to see how many tasks you have completed versus your total workload.
+
