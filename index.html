@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Task Dashboard</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Enable class-based dark mode
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+</head>
+
+<body
+    class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 min-h-screen flex flex-col items-center py-10 transition-colors duration-300">
+
+    <!-- Container -->
+    <div class="w-full max-w-4xl">
+
+        <!-- Header -->
+        <header class="mb-6 flex justify-between items-center">
+            <h1 class="text-3xl font-bold">Smart Task Dashboard</h1>
+            <button id="themeToggle" class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition">Dark
+                Mode</button>
+        </header>
+
+        <!-- Add Task Panel -->
+        <section class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg mb-6 transition-colors duration-300">
+            <div class="flex flex-col md:flex-row md:gap-3 gap-2">
+                <input type="text" id="taskTitle" placeholder="Task title"
+                    class="flex-1 p-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 mb-2 md:mb-0" />
+
+                <select id="taskCategory"
+                    class="p-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">Select Category</option>
+                    <option value="Work">Work</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Urgent">Urgent</option>
+                </select>
+
+                <select id="taskPriority"
+                    class="p-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">Priority</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+
+                <input type="date" id="taskDueDate"
+                    class="p-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
+
+                <button id="addTaskBtn"
+                    class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 dark:hover:bg-blue-400 transition">
+                    Add Task
+                </button>
+            </div>
+
+            <!-- Filter & Search -->
+            <div class="flex flex-col md:flex-row md:gap-3 gap-2 mt-4 items-center">
+                <input type="text" id="searchTask" placeholder="Search tasks..."
+                    class="flex-1 p-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
+
+                <select id="filterCategory"
+                    class="p-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">All Categories</option>
+                    <option value="Work">Work</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Urgent">Urgent</option>
+                </select>
+
+                <select id="filterPriority"
+                    class="p-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">All Priorities</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Task Statistics -->
+        <section class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg mb-6 transition-colors duration-300">
+            <h2 class="font-semibold text-lg mb-3 text-gray-800 dark:text-gray-100">Task Statistics</h2>
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between text-gray-800 dark:text-gray-100">
+                    <span>Total Tasks:</span>
+                    <span id="totalTasks">0</span>
+                </div>
+                <div class="flex justify-between text-gray-800 dark:text-gray-100">
+                    <span>Completed Tasks:</span>
+                    <span id="completedTasks">0</span>
+                </div>
+                <div class="relative h-4 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                    <div id="tasksProgress"
+                        class="absolute left-0 top-0 h-4 bg-green-500 dark:bg-green-400 w-0 transition-all duration-500">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Task List -->
+        <section class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-colors duration-300">
+            <h2 class="font-semibold text-lg mb-4">Tasks</h2>
+            <ul id="taskList" class="space-y-3">
+                <!-- Tasks injected here -->
+            </ul>
+        </section>
+
+    </div>
+
+    <!-- JS Modules -->
+    <script src="js/taskService.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
